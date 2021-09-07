@@ -445,6 +445,12 @@ def run_s2p(ops={}, db={}, server={}):
                         op[key] = ops[key]
             
             print('>>>>>>>>>>>>>>>>>>>>> PLANE %d <<<<<<<<<<<<<<<<<<<<<<'%ipl)
+
+            if os.path.isfile(os.path.join(plane_folders[ipl], 'iscell.npy')):
+                print('Output exists, skipping plane.')
+                continue
+
+
             op = run_plane(op, ops_path=ops_path)
             print('Plane %d processed in %0.2f sec (can open in GUI).' % 
                     (ipl, op['timing']['total_plane_runtime']))  
