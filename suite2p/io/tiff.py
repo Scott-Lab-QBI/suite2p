@@ -207,7 +207,10 @@ def tiff_to_binary(ops):
         ops['meanImg'] /= ops['nframes']
         if nchannels>1:
             ops['meanImg_chan2'] /= ops['nframes']
-        np.save(ops['ops_path'], ops)
+        save_folder = os.path.dirname(ops['ops_path'])
+        iscell_filename = os.path.join(save_folder, 'iscell.npy')
+        if not os.path.isfile(iscell_filename): # Don't overwrite ops, if plane already computed
+            np.save(ops['ops_path'], ops)
     # close all binary files and write ops files
     for j in range(0,nplanes):
         reg_file[j].close()
