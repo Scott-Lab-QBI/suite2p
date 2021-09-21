@@ -1,4 +1,6 @@
-Note: Marius and Carsen are currently at The Neuromatch Academy, and we won't do anything Suite2p-related until after the deep learning course!
+# Scott lab's fork of suite2p
+This fork has some minor customisations specific for the Scott lab, in particular this integrates with our [hpc_pipeline](https://github.com/Scott-Lab-QBI/hpc_pipeline) and focuses on restarting jobs that have failed for spurious reasons (such as data storage dropping out). 
+
 
 # suite2p <img src="suite2p/logo/logo_unshaded.png" width="250" title="sweet two pea" alt="sweet two pea" align="right" vspace = "50">
 
