@@ -450,10 +450,14 @@ def run_s2p(ops={}, db={}, server={}):
                 print('Output exists, skipping plane.')
                 continue
 
-
             op = run_plane(op, ops_path=ops_path)
             print('Plane %d processed in %0.2f sec (can open in GUI).' % 
                     (ipl, op['timing']['total_plane_runtime']))  
+
+            if ops.get('parallel_planes'):
+                print('Doing parallel_planes, stopping after initial plane.')
+                return # If parallel, only do plane 0
+
         run_time = time.time()-t0
         print('total = %0.2f sec.' % run_time)
 
